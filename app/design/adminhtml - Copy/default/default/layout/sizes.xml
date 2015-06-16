@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <sizes_adminhtml_sizes_index>
+	<reference name="content">
+	  <block type="sizes/adminhtml_sizes" name="sizes" />
+	</reference>
+  </sizes_adminhtml_sizes_index>
+</layout>

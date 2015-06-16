@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+	<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<gold translate="title" module="stone">
+											<title>Gold Rates Section</title>
+											<sort_order>0</sort_order>
+										</gold>
+										<labor translate="title" module="stone">
+											<title>Labor Charges Section</title>
+											<sort_order>1</sort_order>
+										</labor>
+										<dnktax translate="title" module="stone">
+											<title>Tax rates</title>
+											<sort_order>1</sort_order>
+										</dnktax>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</config>

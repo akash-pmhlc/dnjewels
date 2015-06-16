@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Dnk_Catalog>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Dnk_Catalog>
+    </modules>
+</config>

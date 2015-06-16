@@ -1,0 +1,41 @@
+<?php   $smsTemplateId = $this->getRequest()->getParam('id'); 
+        $commentCollection = Mage::getModel('sms/comment')->getCollection()
+                            ->addFieldToFilter('sms_template_id',$smsTemplateId);
+?>
+<div class="entry-edit">
+   <div style="" id="sms_tabs_form_section_content">
+    <div class="entry-edit">
+     <div class="entry-edit-head">
+         <h4 class="icon-head head-edit-form fieldset-legend">SMS Approval History</h4>
+     </div>
+     <div class="fieldset ">
+         <div class="hor-scroll">
+             <?php if(count($commentCollection)) { ?>
+             <table style="border:1px solid black;border-collapse:collapse;">
+                <thead>
+                    <tr class="filter">
+                        <th style="border:1px solid black;width: 220px; padding: 5px;"><strong><?php echo $this->__('Admin User'); ?></strong></th>
+                        <th style="border:1px solid black;width: 220px; padding: 5px;"><strong><?php echo $this->__('Approved By Service Provider'); ?></strong></th>
+                        <th style="border:1px solid black;width: 250px; padding: 5px;"><strong><?php echo $this->__('Comment'); ?></strong></th>
+                        <th style="border:1px solid black;width: 220px; padding: 5px;"><strong><?php echo $this->__('Date & Time'); ?></strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($commentCollection as $comment){ ?>
+                <tr>
+                    <td style="border:1px solid black;padding: 5px;"><?php echo $comment->getAdminUser(); ?></td>
+                    <td style="border:1px solid black;padding: 5px;"><?php echo $comment->getApprovedBy(); ?></td>
+                    <td style="border:1px solid black;padding: 5px;"><?php echo $comment->getComment(); ?></td>
+                    <td style="border:1px solid black;padding: 5px;"><?php echo $comment->getCreatedTime(); ?></td>
+                </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+            <?php }else{ 
+                echo $this->__('No SMS Approval History.');
+             } ?>
+         </div>
+     </div>
+     </div>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+
+/* @var $this Mage_Catalog_Block_Product_View_Media */
+?>
+<?php
+    $_product = $this->getProduct();
+	$_coreHelper = $this->helper('core');
+?>
+<input type="hidden" name="sum" id="sum" />
+<input type="hidden" name="base-price" id="base-price" value="<?php $baseCharge = $_product->getCertificatecharge() + $_product->getStonecharge();echo $baseCharge;?>"/>
+<input type="hidden" name="listingprice" id="listingprice" value="<?php echo $_product->getListingprice();?>"/>
+<input type="hidden" name="totalweight" id="totalweight" value="<?php echo $_product->getTotalweight();?>"/>
+<input type="hidden" name="taxpercent" id="taxpercent" value="<?php echo Mage::getStoreConfig('dnktax/taxrate/rate');?>"/>
+<input type="hidden" name="laborthreshold" id="laborthreshold" value="<?php echo Mage::getStoreConfig('labor/laborrate/threshold');?>"/>
+<input type="hidden" name="laborfixedcharge" id="laborfixedcharge" value="<?php echo Mage::getStoreConfig('labor/laborrate/lessthanthreshold');?>"/>
+<input type="hidden" name="laborrate" id="laborrate" value="<?php echo Mage::getStoreConfig('labor/laborrate/morethanthreshold');?>"/>
+<?php
+
+		$goldRate = Mage::getStoreConfig('gold/goldrate/rate24k');
+		$goldRate14K = Mage::getStoreConfig('gold/goldrate/rate14k');
+		$goldRate14kString = $goldRate*$goldRate14K/10;
+		$goldRate18K = Mage::getStoreConfig('gold/goldrate/rate18k');
+		$goldRate18kString = $goldRate*$goldRate18K/10;
+?>
+<input type="hidden" name="goldRate14K" id="goldRate14K" value="<?php echo $goldRate14kString;?>"/>
+<input type="hidden" name="goldRate18K" id="goldRate18K" value="<?php echo $goldRate18kString;?>"/>
+
+<div class="pricesplit" id="light_price_split" style="display: block;padding-bottom: 65px;padding-top: 15px;">
+	<ul>
+	
+		<?php if($_product->getGoldrate14k() > 0 || $_product->getGoldrate18k() > 0) {?>
+			<li>
+				<div class="alllabel">
+					<div class="goldblock">
+						<label class="splitlabel pricesplitLabel">Gold</label>
+						<div class="goldprice breakPrice">
+							<span style="float: left;">Rs.&nbsp;</span>
+							<div id="goldprice"  style="float: left;">
+								<?php echo number_format($_product->getGoldrate14k(), 0, null, '');?>
+								<?php if(!$_product->getGoldrate14k())echo number_format($_product->getGoldrate18k(), 0, null, '');?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		<?php } ?>
+		
+		
+		<?php if($_product->getDiamondcharge() > 0) {?>
+			<input type="hidden" name="diamondcharge" id="diamondcharge" value="<?php echo number_format($_product->getDiamondcharge(), 0, null, '');?>"/>
+			<li>
+				<div class="diamondblock">
+					<label class="splitlabeldia pricesplitLabel">Diamonds</label>
+					<div class="diamondprice breakPrice">
+						<span style="float: left;">Rs.&nbsp;</span>
+						<div id="diamondprice"  style="float: left;"><?php echo number_format($_product->getDiamondcharge(), 0, null, '');?></div>
+					</div>
+				</div>
+			</li>
+		<?php } ?>
+		
+		
+		<?php if($_product->getStonecharge() > 0) {?>
+			<input type="hidden" name="stonecharge" id="stonecharge" value="<?php echo number_format($_product->getStonecharge(), 0, null, '');?>"/>
+			<li>
+				<div class="stoneprice">
+					<label class="stoneprice pricesplitLabel">Gemstone</label>
+					<div class="stoneprice breakPrice">
+						<span style="float: left;">Rs.&nbsp;</span>
+						<div id="stoneprice"  style="float: left;"><?php echo number_format($_product->getStonecharge(), 0, null, '');?></div>
+					</div>
+				</div>
+			</li>
+		<?php } ?>
+		
+		
+		<?php if($_product->getLabor() > 0) {?>
+			<input type="hidden" name="labor" id="labor" value="<?php echo number_format($_product->getLabor(), 0, null, '');?>"/>
+			<li>
+				<div class="labor">
+					<label class="labor  pricesplitLabel">Labor</label>
+					<div class="labor breakPrice">
+						<span  style="float: left;">Rs.&nbsp;</span>
+						<div id="laborprice"  style="float: left;"><?php echo number_format($_product->getLabor(), 0, null, '');?></div>
+					</div>
+				</div>
+			</li>
+		<?php } ?>
+		
+		<?php if($_product->getCertificatecharge() > 0) {?>
+		   <input type="hidden" name="certificatecharge" id="certificatecharge" value="<?php echo number_format($_product->getCertificatecharge(), 0, null, '');?>"/>
+		   <li>
+		    <div class="certificatecharge">
+		     <label class="certificatecharge  pricesplitLabel">Certificate(IGI)</label>
+		     <div class="certificatecharge breakPrice">
+		      <span style="float: center;">Rs.
+		      <span id="certificatecharge"  style="float: center;"><?php echo number_format($_product->getCertificatecharge(), 0, null, '');?></span>
+		      </span>
+		      <!-- <div id="certificatecharge"  style="float: center;"><?php //echo number_format($_product->getCertificatecharge(), 0, null, '');?></div> -->
+		     </div>
+		    </div>
+		   </li>
+		<?php } ?> 		
+		
+		<?php if($_product->getTaxrate() > 0) {?>
+			<input type="hidden" name="taxrate" id="taxrate" value="<?php echo number_format($_product->getTaxrate(), 0, null, '');?>"/>
+			<li class="previous" style="background:none;">
+				<div class="taxrate">
+					<label class="taxrate  pricesplitLabel">VAT</label>
+					<div class="taxrate breakPrice">
+						<span style="float: left;">Rs.&nbsp;</span>
+						<div id="vatprice"  style="float: left;"><?php echo number_format($_product->getTaxrate(), 0, null, '');?></div>
+					</div>
+				</div>
+			</li>
+		<?php } ?>
+		
+		
+	</ul>
+</div>
+
+				

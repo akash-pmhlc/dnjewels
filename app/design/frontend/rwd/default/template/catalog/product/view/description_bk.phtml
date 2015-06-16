@@ -1,0 +1,250 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product description template
+ *
+ * @see Mage_Catalog_Block_Product_View_Description
+ */
+?>
+<?php $_description = $this->getProduct()->getDescription(); ?>
+<?php if ($_description): ?>
+    <h2><?php echo $this->__('Details') ?></h2>
+    <div class="std">
+        <?php //echo $this->helper('catalog/output')->productAttribute($this->getProduct(), $_description, 'description') ?>
+        <div class="columns pdlarge-8 pdportrait-7">
+  			<div class="product_details_container">
+    			<div class="general_details">
+      				<h6 class="product_heading">PRODUCT DETAILS</h6>
+      				<!-- <hr>-->
+      				<table cellspacing="0" class="product_details">
+				          <tr>
+				            <td class="left_row">Stock Number</td>
+				            <td class="border_bottom70" style="padding-left: 5px;"><?php echo $this->getProduct()->getDescription();?></td>
+				          </tr>
+				          <tr>
+				            <td class="left_row">Metal/Purity</td>
+				            <td class="border_bottom70" style="padding-left: 5px;"><span id="desc-gold-purity"></span> Kt <span id="desc-gold-color"></span> Gold</td>
+				          </tr>
+				          <tr>
+				            <td class="left_row">Approximate Metal Weight</td>
+				            <td class="border_bottom70" style="padding-left: 5px;"><?php echo $this->getProduct()->getGoldweight();?> gms</td>
+				          </tr>
+      				</table>
+    				<!-- <hr> -->
+  				</div>
+
+  				<!-- Initial rendering of html markup using rails -->
+  				<?php
+                    $diamondRates = $this->getProduct()->getRates();
+                    $diamondWeight = 0;
+                    $diamondCount = 0;
+                    $daimondRatesArray = explode(',',$diamondRates);
+                    foreach ($daimondRatesArray as $daimondRate) {
+                        $diamondRateArray = explode('|', $daimondRate);
+                        
+                        $rateArray = explode('-', $diamondRateArray[0]);
+                        $diamondCount += $rateArray[1];
+                        $diamondWeight += $rateArray[2];
+                    }
+                    $diamondCarat = $diamondWeight/(0.2);
+                ?>
+  				<div ng-hide="1" class="diamond_details ng-hide" aria-hidden="1">
+    				<h6 class="details_heading">DIAMOND DETAILS</h6>
+    				<!-- <hr> -->
+    				<div class="details_container">
+      					<table cellspacing="0" class="product_details_price_breakup">
+        					<tr style="width: 33%">
+						            <td class="detail_text border_bottom">Total Diamond(s)</td>
+						            <td class="border_bottom70"><?php echo $diamondCount;?></td>
+							</tr>
+							<tr>		
+									<td class="detail_text border_bottom">Diamond Weight</td>
+									<td class="border_bottom70"><?php echo $diamondCarat;?>&nbsp;ct</td>						        
+        					</tr>
+        					<tr>					            
+					            <td class="detail_text">Diamond Quality</td>
+					            <td class="border_bottom70"><span id="desc-diamond-purity"></span></td>
+        					</tr>
+      					</table>
+    				</div>
+    				<!-- <hr> -->
+  				</div>
+
+  				<!-- Initial rendering of html markup using rails -->
+  				<?php
+                    $stoneRates = $this->getProduct()->getStonerates();
+                    $stoneWeight = 0;
+                    $stoneCount = 0;
+                    $stoneRatesArray = explode(',',$stoneRates);
+                    foreach ($stoneRatesArray as $stoneRate) {
+                        $stoneRateArray = explode('|', $stoneRate);
+                        
+                        $stoneArray = explode('-', $stoneRateArray[0]);
+                        $stoneCount += $stoneArray[1];
+                        $stoneWeight += $stoneArray[2];
+                    }
+                    $stoneCarat = $stoneWeight/(0.2);
+                ?>
+  				<div ng-hide="1" class="diamond_details ng-hide" style="padding: 2px" aria-hidden="1">
+    				<h6 class="details_heading">STONE DETAILS</h6>
+    				<!-- <hr> -->
+    				<div class="details_container">
+					
+      					<table cellspacing="0" class="product_details_price_breakup">
+        					<tr style="width: 33%">
+						            <td class="detail_text border_bottom" >Total Stone(s)</td>
+						            <td class="border_bottom70" ><?php echo $stoneCount;?></td>									
+        					</tr>
+        					<tr>					          						           					           
+					            <td class="detail_text" >Stone Weight</td>
+					            <td class="border_bottom70"><?php echo $stoneCarat;?>&nbsp;ct</td>					            
+        					</tr>
+						</table>	
+      					</div>
+
+    				</div>
+    				<!-- <hr> -->
+  				
+
+
+    			<div ng-hide="1" class="general_details ng-hide" aria-hidden="1">
+      				<h6 class="details_heading">PRICE BREAKUP</h6>
+      				<!-- <hr> -->
+        			<table cellspacing="0" class="product_details_price_breakup">
+          				<tbody>
+          					<tr class="pd heading">
+            					<td class="detail_text" style="width: 33%">Component</td>
+            					<td>Rate</td>
+            					<td>Weight</td>
+            					<td>Value</td>
+          					</tr>
+              				<tr>
+                				<td class="detail_text pb_heading">Gold - <span id="breakup-gold-purity"></span> Kt <span id="breakup-gold-color"></span> Gold</td>
+                				<td>Rs. <span id="breakup-gold-rate-per-gm"></span>/gm</td>
+                				<td><?php echo $this->getProduct()->getGoldweight();?> gms</td>
+                				<td>Rs. <span id="breakup-gold-rate">6,270</span></td>
+              				</tr>
+							
+				              <tr>
+				                <td colspan="4" class="detail_text pb_heading">Diamonds</td>
+				              </tr>
+				              <tr>
+							
+							  <td class="detail_text">IJ-SI Round - 18 Nos.</td>
+				                <td>Rs. 61,000/ct</td>
+				                <td>0.14 ct</td>
+				                <td>Rs. 8,540</td>
+				              </tr>
+							<!--				            
+							<tr>
+				                <td colspan="4" class="pb_heading">Diamonds</td>
+				            </tr>
+							-->
+							<tr>
+				                <td class="detail_text">IJ-SI Round - 3 Nos.</td>
+				                <td>Rs. 61,000/ct</td>
+				                <td>0.03 ct</td>
+				                <td>Rs. 1,830</td>
+				              </tr>
+				            <tr>
+							<!--
+							  <td colspan="4" class="pb_heading">Diamonds</td>
+				              </tr>
+							-->
+				              <tr>
+				                <td class="detail_text">IJ-SI Round - 8 Nos.</td>
+				                <td>Rs. 61,000/ct</td>
+				                <td>0.08 ct</td>
+				                <td>Rs. 4,880</td>
+				              </tr>
+				            <tr>
+				               <td class=" detail_text pb_heading">Labor Charges</td>
+				               <td></td>
+				               <td></td>
+				               <td>Rs. <span id="breakup-labor-charges"></span></td>
+				            </tr>
+              				<tr>
+                				<td class="detail_text pb_heading">VAT</td>
+                				<td></td>
+                				<td></td>								
+                				<td>Rs. <span id="breakup-vat-charges"></span></td>
+              				</tr>
+      					</tbody>
+      				</table>
+      				<!-- <hr> -->
+				
+    			</div>
+			</div>
+		</div>
+    </div>
+<?php endif; ?>
+<script type="text/javascript">
+
+            $$('input[type="radio"]:checked').each(function(c){
+                
+                var elm = document.getElementById(c.id);
+                var elmPrice = elm.getAttribute('PRICE');
+                var elmOptionCategory = elm.getAttribute('OPTIONCATEGORY');
+
+                if(elmOptionCategory == 'Gold Purity') {
+                    labelElmId = 'label_'+c.id;
+                    var a = document.getElementById(labelElmId).innerHTML;
+                    if (a == '14K') {
+                        document.getElementById('desc-gold-purity').innerHTML = '14';
+                        document.getElementById('breakup-gold-purity').innerHTML = '14';
+
+                		var goldRate14KElm = document.getElementById('goldRate14K');
+                		var goldRate14K = Number(goldRate14KElm.value);
+                		document.getElementById('breakup-gold-rate-per-gm').innerHTML =goldRate14K;
+                    } else {
+                        document.getElementById('desc-gold-purity').innerHTML = '18';
+                        document.getElementById('breakup-gold-purity').innerHTML = '18';
+
+                		var goldRate18KElm = document.getElementById('goldRate18K');
+                		var goldRate18K = Number(goldRate18KElm.value);
+                		document.getElementById('breakup-gold-rate-per-gm').innerHTML =goldRate18K;
+                    }
+                }
+                
+                if(elmOptionCategory == 'Gold Color') {
+                    labelElmId = 'label_'+c.id;
+                    var a = document.getElementById(labelElmId).innerHTML;
+                    document.getElementById('desc-gold-color').innerHTML = a;
+                    document.getElementById('breakup-gold-color').innerHTML = a;
+                }
+
+                if(elmOptionCategory == 'Diamond Color & Purity') {
+                    labelElmId = 'label_'+c.id;
+                    var a = document.getElementById(labelElmId).innerHTML;
+                    document.getElementById('desc-diamond-purity').innerHTML = a;
+                }
+                
+                document.getElementById('breakup-labor-charges').innerHTML = document.getElementById('laborprice').innerHTML;
+                document.getElementById('breakup-vat-charges').innerHTML = document.getElementById('vatprice').innerHTML;
+
+            });
+</script>

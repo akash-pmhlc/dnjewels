@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<layout>
+ 
+    <adminhtml_catalog_product_new>
+        <reference name="product_tabs">
+            <action method="addTab">
+                <name>diamondrates</name>
+                <block>customcatalog/adminhtml_catalog_product_edit_tab</block>
+            </action>
+            <action method="addTab">
+                <name>stonerates</name>
+                <block>customcatalog/adminhtml_catalog_product_edit_stonetab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_new>
+	
+    <adminhtml_catalog_product_edit>
+        <reference name="product_tabs">
+            <action method="addTab">
+                <name>diamondrates</name>
+                <block>customcatalog/adminhtml_catalog_product_edit_tab</block>
+            </action>
+            <action method="addTab">
+                <name>stonerates</name>
+                <block>customcatalog/adminhtml_catalog_product_edit_stonetab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+ 
+    <adminhtml_catalog_product_diamondrates>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="customcatalog/adminhtml_catalog_product_edit_tab_diamondrates" name="catalog.product.edit.tab.diamondrates"/>
+            <block type="adminhtml/widget_grid_serializer" name="diamondrates_grid_serializer">
+                <reference name="diamondrates_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.diamondrates</grid_block_name>
+                        <data_callback>getSelectedRates</data_callback>
+                        <hidden_input_name>diamondrates[rates]</hidden_input_name>
+                        <reload_param_name>rates</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>number</input_name>
+                        <input_name>diamond-weight</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_catalog_product_diamondrates>
+ 
+    <adminhtml_catalog_product_diamondratesgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="customcatalog/adminhtml_catalog_product_edit_tab_diamondrates" name="catalog.product.edit.tab.diamondrates"/>
+        </block>
+    </adminhtml_catalog_product_diamondratesgrid>
+ 
+    <adminhtml_catalog_product_stonerates>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="customcatalog/adminhtml_catalog_product_edit_tab_stonerates" name="catalog.product.edit.tab.stonerates"/>
+            <block type="adminhtml/widget_grid_serializer" name="stonerates_grid_serializer">
+                <reference name="stonerates_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.stonerates</grid_block_name>
+                        <data_callback>getSelectedStoneRates</data_callback>
+                        <hidden_input_name>stonerates[rates]</hidden_input_name>
+                        <reload_param_name>rates</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>stone-weight</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_catalog_product_stonerates>
+ 
+    <adminhtml_catalog_product_stoneratesgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="customcatalog/adminhtml_catalog_product_edit_tab_stonerates" name="catalog.product.edit.tab.stonerates"/>
+        </block>
+    </adminhtml_catalog_product_stoneratesgrid>
+	
+</layout>

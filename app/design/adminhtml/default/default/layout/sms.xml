@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <sms_adminhtml_sms_index>
+        <reference name="head">
+            <action method="setTitle"><title>SMS Template Manager</title></action>
+        </reference>
+        <reference name="content">
+            <block type="sms/adminhtml_sms" name="sms" />
+        </reference>
+    </sms_adminhtml_sms_index>
+</layout>

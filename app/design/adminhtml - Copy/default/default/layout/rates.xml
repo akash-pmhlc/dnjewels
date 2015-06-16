@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <rates_adminhtml_rates_index>
+	<reference name="content">
+	  <block type="rates/adminhtml_rates" name="rates" />
+	</reference>
+  </rates_adminhtml_rates_index>
+</layout>

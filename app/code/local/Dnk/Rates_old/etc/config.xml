@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Dnk_Rates>
+      <version>0.1.0</version>
+    </Dnk_Rates>
+  </modules>
+  <global>
+    <helpers>
+      <rates>
+        <class>Dnk_Rates_Helper</class>
+      </rates>
+    </helpers>
+ <blocks>
+   <rates>
+  <class>Dnk_Rates_Block</class>
+   </rates>
+ </blocks>
+ <models>
+   <rates>
+  <class>Dnk_Rates_Model</class>
+  <resourceModel>rates_mysql4</resourceModel>
+   </rates>
+   <rates_mysql4>
+  <class>Dnk_Rates_Model_Mysql4</class>
+  <entities>    
+     <rates>
+    <table>rates</table>
+     </rates>
+     <childrates>
+    <table>rates_child</table>
+     </childrates>
+        </entities>
+   </rates_mysql4>
+ </models>
+ <resources>
+   <rates_setup>
+  <setup>
+    <module>Dnk_Rates</module>
+  </setup>
+  <connection>
+    <use>core_setup</use>
+  </connection>
+   </rates_setup>
+   <rates_write>
+  <connection>
+    <use>core_write</use>
+  </connection>
+   </rates_write>
+   <rates_read>
+  <connection>
+    <use>core_read</use>
+  </connection>
+   </rates_read>
+ </resources>
+  </global>
+  <admin>
+ <routers>
+   <rates>
+     <use>admin</use>
+  <args>
+    <module>Dnk_Rates</module>
+    <frontName>admin_rates</frontName>
+  </args>
+   </rates>
+ </routers>
+  </admin>
+  <adminhtml>
+ <menu>
+   <dnj module="rates">
+  <title>D N Jewels</title>
+  <sort_order>100</sort_order>
+  <children>
+    <rates module="rates">
+      <title>Manage Rates</title>
+   <sort_order>0</sort_order>
+   <action>admin_rates/adminhtml_rates</action>
+    </rates>
+  </children>
+   </dnj>
+ </menu>
+ <acl>
+   <resources>
+  <all>
+    <title>Allow Everything</title>
+  </all>
+  <admin>
+    <children>
+   <rates translate="title" module="rates">
+     <title>Rates</title>
+     <sort_order>1000</sort_order>
+     <children>
+    <rates translate="title">
+   <title>Manage Rates</title>
+   <sort_order>0</sort_order>
+    </rates>
+     </children>
+   </rates>
+    </children>
+  </admin>
+   </resources>
+ </acl>
+ <layout>
+   <updates>
+  <rates>
+    <file>rates.xml</file>
+  </rates>
+   </updates>
+ </layout>
+  </adminhtml>
+</config>

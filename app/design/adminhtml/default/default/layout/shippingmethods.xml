@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <shippingmethods_adminhtml_samonishipping_index>
+	<reference name="content">
+	  <block type="shippingmethods/adminhtml_samonishipping" name="samonishipping" />
+	</reference>
+  </shippingmethods_adminhtml_samonishipping_index>
+</layout>

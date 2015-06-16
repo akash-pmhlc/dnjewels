@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <general>
+            <groups>
+                <service_provider translate="label" module="sms">
+                    <label>SMS Service Provider Details</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <sms_service_url translate="label">
+                            <label>SMS Service URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sms_service_url>
+                        <app_secret_key translate="label">
+                            <label>APP Secret Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </app_secret_key>						
+                    </fields>
+                </service_provider>
+                <sms_template translate="label" module="sms">
+                    <label>SMS Template Details</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>201</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <sms_order translate="label">
+                            <backend_model>sms/order</backend_model>
+                            <label>Order Confirmation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sms_order>
+                        <sms_shipment translate="label">
+                            <backend_model>sms/shipment</backend_model>
+                            <label>Order Shipment</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sms_shipment>
+						<sms_order_cancel translate="label">
+                            <backend_model>sms/order</backend_model>
+                            <label>Order Cancellation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sms_order_cancel>
+                        <!-- <giftease_sms_delivery translate="label">
+                            <backend_model>sms/delivery</backend_model>
+                            <label>Order Delivery confirmation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftease_sms_delivery>
+                        <giftease_sms_cancel translate="label">
+                            <backend_model>sms/cancel</backend_model>
+                            <label>Order Cancellation</label>
+                            <backend_model>sms/order</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftease_sms_cancel>
+                        <giftease_sms_received translate="label">
+                            <backend_model>sms/received</backend_model>
+                            <label>RMA Received</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftease_sms_received>
+                        <giftease_sms_processing translate="label">
+                            <backend_model>sms/processing</backend_model>
+                            <label>RMA Processing</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftease_sms_processing>
+                        <giftease_sms_complete translate="label">
+                            <backend_model>sms/complete</backend_model>
+                            <label>RMA Complete</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftease_sms_complete>
+                        <giftease_sms_overdue translate="label">
+                            <backend_model>sms/overdue</backend_model>
+                            <label>Overdue</label>
+                            <comment>Overdue – order which is not shipped beyond shipping date.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftease_sms_overdue> -->
+                    </fields>
+                </sms_template>
+                 <customer_care_number translate="label" module="sms">
+                    <label>Customer Care Number</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>302</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <number translate="label">
+                            <label>Customer Care Number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </number>
+                    </fields>    
+                </customer_care_number>
+            </groups>
+        </general>
+    </sections>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <shapes_adminhtml_shapesbackend_index>
+	<reference name="content">
+	  <block type="shapes/adminhtml_shapesbackend" name="shapesbackend" template="shapes/shapesbackend.phtml"/>
+	</reference>
+  </shapes_adminhtml_shapesbackend_index>
+  <shapes_adminhtml_shapes_index>
+	<reference name="content">
+	  <block type="shapes/adminhtml_shapes" name="shapes" />
+	</reference>
+  </shapes_adminhtml_shapes_index>
+</layout>

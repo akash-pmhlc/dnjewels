@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Dnk_Sms>
+            <version>0.1.0</version>
+        </Dnk_Sms>
+    </modules>
+<!--    <frontend>
+        <routers>
+            <sms>
+                <use>standard</use>
+                <args>
+                    <module>Dnk_Sms</module>
+                    <frontName>sms</frontName>
+                </args>
+            </sms>
+        </routers>
+        <layout>
+            <updates>
+                <sms>
+                    <file>sms.xml</file>
+                </sms>
+            </updates>
+        </layout>
+    </frontend>-->
+    <admin>
+        <routers>
+			<sms>
+				<use>admin</use>
+				<args>
+					<module>Dnk_Sms</module>
+					<frontName>sms</frontName>
+				</args>
+			</sms>
+        </routers>
+    </admin>
+    <adminhtml>
+                <menu>
+                    <dnj>
+                            <children>
+                                <sms translate="title" module="sms">
+                                    <title>SMS Templates</title>
+                                    <sort_order>16</sort_order>
+                                    <action>sms/adminhtml_sms</action>
+                                </sms>
+                            </children>
+                    </dnj>
+<!--			<sms module="sms">
+				<title>Sms</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="sms">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>sms/adminhtml_sms</action>
+					</items>
+				</children>
+			</sms>-->
+		</menu>
+		<acl>
+                    <resources>
+				<all>
+                                    <title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+                                            <homepage module="homepage">
+                                                <children>
+                                                    <sms module="sms">
+                                                        <title>SMS Templates Manager</title>
+                                                        <sort_order>6</sort_order>
+                                                        <children>
+                                                            <create module="sms" translate="title">
+                                                                <title>SMS Template Create Manager</title>
+                                                                <sort_order>1</sort_order>
+                                                            </create>
+                                                            <approved module="sms" translate="title">
+                                                                <title>SMS Template Approval Manager</title>
+                                                                <sort_order>2</sort_order>
+                                                            </approved>
+                                                        </children>
+                                                    </sms>
+                                                </children>
+                                            </homepage>
+					</children>
+				</admin>
+                    </resources>
+		</acl>
+		<layout>
+			<updates>
+				<sms>
+					<file>sms.xml</file>
+				</sms>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <sms>
+                <class>Dnk_Sms_Model</class>
+                <resourceModel>sms_mysql4</resourceModel>
+            </sms>
+            <sms_mysql4>
+                <class>Dnk_Sms_Model_Mysql4</class>
+                <entities>
+                    <sms>
+                        <table>sms</table>
+                    </sms>
+                    <comment>
+                        <table>sms_comment_history</table>
+                    </comment>
+                </entities>
+            </sms_mysql4>
+        </models>
+        <resources>
+            <sms_setup>
+                <setup>
+                    <module>Dnk_Sms</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </sms_setup>
+            <sms_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </sms_write>
+            <sms_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </sms_read>
+        </resources>
+        <blocks>
+            <sms>
+                <class>Dnk_Sms_Block</class>
+            </sms>
+        </blocks>
+        <helpers>
+            <sms>
+                <class>Dnk_Sms_Helper</class>
+            </sms>
+        </helpers>
+    </global>
+</config>

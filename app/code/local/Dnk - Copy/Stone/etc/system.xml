@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<config>
+	  <tabs>
+		<dnk translate="label" module="stone">
+            <label>D N Jewels</label>
+            <sort_order>0</sort_order>
+        </dnk>
+	  </tabs>
+	  <sections>
+		<gold  translate="label" module="stone">                    
+		<label>Gold Rates</label>
+		<tab>dnk</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>0</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>0</show_in_store>            
+					<groups>
+				      <goldrate translate="label"> 
+					  <label>Gold Rates</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>0</show_in_store>
+				       <fields>
+                          <rate24k translate="label">
+                            <label>Rate of Gold for 24K</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>24K Charges</comment>
+							<backend_model>stone/goldrate</backend_model>
+                          </rate24k>
+                          <rate14k translate="label">
+                            <label>Rate of Gold for 14K</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>14K Charges, Percentage Value of 24K</comment>
+                          </rate14k>
+                          <rate18k translate="label">
+                            <label>Rate of Gold for 18K</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>18K Charges, Percentage Value of 24K</comment>
+                          </rate18k>
+					   </fields>
+					   </goldrate>
+					</groups>
+		</gold>
+		<labor  translate="label" module="stone">                    
+		<label>Labor Charges</label>
+		<tab>dnk</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>1</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>0</show_in_store>            
+					<groups>
+				      <laborrate translate="label"> 
+					  <label>Labor Rates</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>1</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>0</show_in_store>
+				       <fields>
+                          <threshold translate="label">
+                            <label>Threshold</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>Labor rate applicable for less than specified amount</comment>
+                          </threshold>
+                          <lessthanthreshold translate="label">
+                            <label>Rate Applicable</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>Flat Rate if cost less than threshold</comment>
+                          </lessthanthreshold>
+                          <morethanthreshold translate="label">
+                            <label>Rate Applicable</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>Rate per gm if cost more than threshold</comment>
+                          </morethanthreshold>
+					   </fields>
+					   </laborrate>
+					</groups>
+		</labor>
+		<dnktax  translate="label" module="stone">                    
+		<label>Tax Rates</label>
+		<tab>dnk</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>1</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>0</show_in_store>            
+					<groups>
+				      <taxrate translate="label"> 
+					  <label>Tax Rates</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>1</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>0</show_in_store>
+				       <fields>
+                          <rate translate="label">
+                            <label>Tax Rate</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>Tax Rate is applicable to all the products in the website</comment>
+                          </rate>
+					   </fields>
+					   </taxrate>
+					</groups>
+		</dnktax>
+	  </sections>
+</config>

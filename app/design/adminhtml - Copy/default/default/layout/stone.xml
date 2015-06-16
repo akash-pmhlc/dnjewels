@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <stone_adminhtml_stones_index>
+	<reference name="content">
+	  <block type="stone/adminhtml_stones" name="stones" />
+	</reference>
+  </stone_adminhtml_stones_index>
+</layout>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<gridcontrol>
+    <grids>
+        <!-- grid id -->
+        <productGrid>
+            <!-- column name -->
+            <price>
+                <!-- action -->
+                <remove/>
+            </price>
+
+            <listingprice>
+                <!-- add new column -->
+                <add>
+                    <!-- header attribute -->
+                    <header>Listing Price</header>
+                    <index>listingprice</index>
+                </add>
+				<after>sku</after>
+            </listingprice>
+        </productGrid>
+    </grids>
+</gridcontrol>

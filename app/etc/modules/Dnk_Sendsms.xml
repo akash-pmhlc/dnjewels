@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Dnk_Sendsms>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Dnk_Sendsms>
+    </modules>
+</config>

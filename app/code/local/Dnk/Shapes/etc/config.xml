@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Dnk_Shapes>
+      <version>0.1.0</version>
+    </Dnk_Shapes>
+  </modules>
+  <global>
+    <helpers>
+      <shapes>
+        <class>Dnk_Shapes_Helper</class>
+      </shapes>
+    </helpers>
+	<blocks>
+	  <shapes>
+		<class>Dnk_Shapes_Block</class>
+	  </shapes>
+	</blocks>
+	<models>
+	  <shapes>
+		<class>Dnk_Shapes_Model</class>
+		<resourceModel>shapes_mysql4</resourceModel>
+	  </shapes>
+	  <shapes_mysql4>
+		<class>Dnk_Shapes_Model_Mysql4</class>
+		<entities>		  
+			  <shapes>
+				<table>shapes</table>
+			  </shapes>
+        </entities>
+	  </shapes_mysql4>
+	</models>
+	<resources>
+	  <shapes_setup>
+		<setup>
+		  <module>Dnk_Shapes</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </shapes_setup>
+	  <shapes_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </shapes_write>
+	  <shapes_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </shapes_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <shapes>
+	    <use>admin</use>
+		<args>
+		  <module>Dnk_Shapes</module>
+		  <frontName>admin_shapes</frontName>
+		</args>
+	  </shapes>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <dnj>
+		<children>
+		  <shapes module="shapes">
+		    <title>Manage Shapes</title>
+			<sort_order>0</sort_order>
+			<action>admin_shapes/adminhtml_shapes</action>
+		  </shapes>
+		</children>
+	  </dnj>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<shapes translate="title" module="shapes">
+			  <title>Shapes</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <shapesbackend translate="title">
+			<title>Manage Shapes</title>
+		  </shapesbackend>
+		  <shapes translate="title">
+			<title>Manage Shapes</title>
+			<sort_order>0</sort_order>
+		  </shapes>
+			  </children>
+			</shapes>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<shapes>
+		  <file>shapes.xml</file>
+		</shapes>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

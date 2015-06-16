@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <certificates_adminhtml_certificates_index>
+	<reference name="content">
+	  <block type="certificates/adminhtml_certificates" name="certificates" />
+	</reference>
+  </certificates_adminhtml_certificates_index>
+</layout>

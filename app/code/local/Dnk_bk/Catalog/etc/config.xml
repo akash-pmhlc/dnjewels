@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Dnk_Catalog>
+            <version>0.1.1</version>
+        </Dnk_Catalog>
+    </modules>
+    <global>
+        <blocks>
+            <catalog>
+                <rewrite>
+                    <product_view_type_configurable>Dnk_Catalog_Block_Product_View_Type_Configurable</product_view_type_configurable>
+                </rewrite>
+            </catalog>
+        </blocks>
+    </global>
+</config>
