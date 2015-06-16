@@ -1,0 +1,74 @@
+# ---------------------------------------------- #
+# # Zigy Ignores #
+# ---------------------------------------------- #
+# try to keep this sorted chronologically to make life easier
+
+*.sql.gz
+*.css.map
+
+.DS_Store
+.htaccess
+.htaccess.txt
+.htpasswd
+
+/nbproject/private/
+apidocs/html/*
+app/etc/local.xml
+app/etc/local.xml.withmemcacheandredis
+bower_components/*
+composer.phar
+errors/local.xml
+include
+media/*
+n98-magerun.phar
+node_modules/*
+var/*
+skin/frontend/zigy/default/js/vendor
+
+
+# Ignore for RVM users
+.ruby-version
+.ruby-gemset
+.rvmrc
+
+### IDEs ###
+.project
+*.sublime-project
+*.sublime-workspace
+
+#
+# Ignore hidden folders #
+# This takes care of .tmp, .sass-cache, and many others #
+.*/
+
+# Ignore OS generated files #
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Always-ignore files and folders #
+
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swn
+*.swo
+*.swp
+._*
+*~
+
+# Ignore packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore proccessed css files #
+/skin/frontend/zigy/default/css/*
