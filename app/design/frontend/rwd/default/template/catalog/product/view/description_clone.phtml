@@ -136,25 +136,20 @@
         			<table cellspacing="0" class="product_details_price_breakup">
           				<tbody>
           					<tr class="pd heading">
-            					<td class="price-breakup-header"><h6>Gold</h6></td>
-            					<td class="price-breakup-header-no-border"><h6>Rate</h6></td>
-            					<td class="price-breakup-header-no-border"><h6>Weight</h6></td>
-            					<td class="price-breakup-header-no-border"><h6>Value</h6></td>
+            					<td class="detail_text" style="width: 33%">Component</td>
+            					<td>Rate</td>
+            					<td>Weight</td>
+            					<td>Value</td>
           					</tr>
-						</tbody>	
-							
               				<tr>
-                				<td class="price-breakup-component">Gold - <span id="breakup-gold-purity"></span> Kt <span id="breakup-gold-color"></span> Gold</td>
-                				<td class="price-breakup-item">Rs. <span id="breakup-gold-rate-per-gm"></span>/gm</td>
-                				<td class="price-breakup-item"><?php echo $this->getProduct()->getGoldweight();?> gms</td>
-                				<td class="price-breakup-item">Rs. <span id="breakup-gold-rate">6,270</span></td>
+                				<td class="detail_text pb_heading">Gold - <span id="breakup-gold-purity"></span> Kt <span id="breakup-gold-color"></span> Gold</td>
+                				<td>Rs. <span id="breakup-gold-rate-per-gm"></span>/gm</td>
+                				<td><?php echo $this->getProduct()->getGoldweight();?> gms</td>
+                				<td>Rs. <span id="breakup-gold-rate">6,270</span></td>
               				</tr>
 							
 				              <tr>
-				                <td class="price-breakup-header"><h6>Diamonds</h6></td>
-								<td></td>
-								<td></td>
-								<td></td>
+				                <td colspan="4" class="detail_text pb_heading">Diamonds</td>
 				              </tr>
 				              <tr>
 							
@@ -215,10 +210,10 @@
                               <?php
                               $valueofCertificateArrayValueArray = explode('-', $valueofCertificateArrayValue);
                               ?>
-                                <td class="price-breakup-component"><span id="diamond-table-certificate-<?php echo $count;?>"><?php echo $key;?></span> <span id="diamond-table-shape-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[0]; ?></span> - <span id="diamond-table-number-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[3];?></span> Nos.</td>
-                                <td class="price-breakup-item">Rs. <span id="diamond-table-rate-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[1];?></span>/ct</td>
-                                <td class="price-breakup-item"><span id="diamond-table-weight-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[4];?></span> ct</td>
-                                <td class="price-breakup-item">Rs. <span id="diamond-table-cost-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[2];?></span></td>
+                                <td class="td1"><span id="diamond-table-certificate-<?php echo $count;?>"><?php echo $key;?></span> <span id="diamond-table-shape-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[0]; ?></span> - <span id="diamond-table-number-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[3];?></span> Nos.</td>
+                                <td>Rs. <span id="diamond-table-rate-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[1];?></span>/ct</td>
+                                <td><span id="diamond-table-weight-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[4];?></span> ct</td>
+                                <td>Rs. <span id="diamond-table-cost-<?php echo $count;?>"><?php echo $valueofCertificateArrayValueArray[2];?></span></td>
                             </tr>
                               <?php
                               $count++;
@@ -228,11 +223,7 @@
 
 
                       <tr>
-                        <td class="price-breakup-header"><h6>Gemstones</h6></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						
+                        <td colspan="4" class="pb_heading">Gemstones</td>
                       </tr>
 
                       <?php
@@ -257,10 +248,10 @@
                         foreach ($finalStoneRateArray as $finalStoneRate) {
                             ?>
                             <tr>
-                                <td class="price-breakup-component"><span id="stone-table-name"><?php echo $finalStoneRate['name'];?></span></td>
-                                <td class="price-breakup-item">Rs. <span id="stone-table-rate"><?php echo $finalStoneRate['rate'];?></span>/ct</td>
-                                <td class="price-breakup-item"><span id="stone-table-weight"><?php echo $finalStoneRate['weight'];?></span> ct</td>
-                                <td class="price-breakup-item">Rs. <span id="stone-table-cost"><?php echo $finalStoneRate['weight']*$finalStoneRate['rate'];?></span></td>
+                                <td class="td1"><span id="stone-table-name"><?php echo $finalStoneRate['name'];?></span></td>
+                                <td>Rs. <span id="stone-table-rate"><?php echo $finalStoneRate['rate'];?></span>/ct</td>
+                                <td><span id="stone-table-weight"><?php echo $finalStoneRate['weight'];?></span> ct</td>
+                                <td>Rs. <span id="stone-table-cost"><?php echo $finalStoneRate['weight']*$finalStoneRate['rate'];?></span></td>
                             </tr>
                           <?php
                         }
@@ -268,17 +259,18 @@
 						
 						
 				            <tr>
-				               <td class="price-breakup-header"><h6>Labor Charges</h6></td>
+				               <td class=" detail_text pb_heading">Labor Charges</td>
 				               <td></td>
 				               <td></td>
-				               <td class="price-breakup-item">Rs. <span id="breakup-labor-charges"></span></td>
+				               <td>Rs. <span id="breakup-labor-charges"></span></td>
 				            </tr>
               				<tr>
-                				<td class="price-breakup-header"><h6>VAT</h6></td>
+                				<td class="detail_text pb_heading">VAT</td>
                 				<td></td>
                 				<td></td>								
-                				<td class="price-breakup-item">Rs. <span id="breakup-vat-charges"></span></td>
-              				</tr>      					
+                				<td>Rs. <span id="breakup-vat-charges"></span></td>
+              				</tr>
+      					</tbody>
       				</table>
       				<!-- <hr> -->
 				

@@ -117,30 +117,20 @@
 			</li>
 		<?php } ?>
 		
-	<?php /*if($_product->getCertificatecharge() > 0) { */?>
-		   <!-- 
-		   <input type="hidden" name="certificatecharge" id="certificatecharge" value="<?php //echo number_format($_product->getCertificatecharge(), 0, null, '');?>"/>
+		<?php if($_product->getCertificatecharge() > 0) {?>
+		   <input type="hidden" name="certificatecharge" id="certificatecharge" value="<?php echo number_format($_product->getCertificatecharge(), 0, null, '');?>"/>
 		   <li>
 		    <div class="certificatecharge">
 		     <label class="certificatecharge  pricesplitLabel">Certificate(IGI)</label>
 		     <div class="certificatecharge breakPrice">
 		      <span style="float: center;">Rs.
-		      <span id="certificatecharge"  style="float: center;">
-			  -->
-			  <?php //echo number_format($_product->getCertificatecharge(), 0, null, '');?>
-			  <!--
-			  </span>
-		      </span>			  
-		      <div id="certificatecharge"  style="float: center;">
-			  -->
-			  <?php //echo number_format($_product->getCertificatecharge(), 0, null, '');?>
-			  <!--
-			  </div>		     
-			 </div>
+		      <span id="certificatecharge"  style="float: center;"><?php echo number_format($_product->getCertificatecharge(), 0, null, '');?></span>
+		      </span>
+		      <!-- <div id="certificatecharge"  style="float: center;"><?php //echo number_format($_product->getCertificatecharge(), 0, null, '');?></div> -->
+		     </div>
 		    </div>
 		   </li>
-		   -->
-		<?php /*}*/ ?> 		
+		<?php } ?> 		
 		
 		<?php if($_product->getTaxrate() > 0) {?>
 			<input type="hidden" name="taxrate" id="taxrate" value="<?php echo number_format($_product->getTaxrate(), 0, null, '');?>"/>

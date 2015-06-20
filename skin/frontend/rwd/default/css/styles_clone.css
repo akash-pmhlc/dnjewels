@@ -3423,13 +3423,9 @@ a.skip-link {
   text-decoration: none;
   position: relative;
   display: block;
-  color: #25607E;
+  color: #636363;
   line-height: 30px;
-/* Nilesh Homepage Main Tab */
-font-size: 14px;
-font-weight: bold;
-/* Nilesh */
- font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
 }
 .nav-primary li {
   position: relative;
@@ -9886,53 +9882,7 @@ td.detail_text {
 	width: 33%;
 }
 
-td.price-breakup{
-	border-bottom:1px solid #d9d9d7;
-	background-color: #f4f4f4;
-	padding: 5px; 
-	width: 25%;
-}
 
-td.price-breakup-header-no-border{
-	border-bottom:1px solid #d9d9d7;
-	background-color: #f4f4f4;
-	padding: 5px;
-	width: 25%;
-	text-align: center;
-}
-
-td.price-breakup-header{
-	border-bottom:1px solid #d9d9d7;
-	border-right:1px solid #d9d9d7;
-	padding: 5px; 
-	background-color: #f4f4f4;
-	width: 25%;
-	text-align: center;
-}
-
-td.price-breakup-component{
-	border-bottom:1px solid #d9d9d7;
-	border-right:1px solid #d9d9d7;
-	padding: 5px; 
-	background-color: #f4f4f4;
-	width: 33%;
-	text-align: left;
-}
-
-td.price-breakup-item-right-border{
-	border-bottom:1px solid #d9d9d7;
-	border-right:1px solid #d9d9d7;
-	background-color: #f4f4f4;
-	width: 33%;
-	text-align: center;
-}
-
-td.price-breakup-item{
-	border-bottom:1px solid #d9d9d7;
-	padding: 5px; 
-	width: 25%;
-	text-align: center;
-}
 div.border_bottom70 {
 /* border-bottom:1px solid #d9d9d7; */
 border:1px solid #d9d9d7;
@@ -9951,10 +9901,5 @@ padding: 5px;
 div.product_heading {
 border-bottom:1px solid #ccc;
 }
-
-
-.listingPrice{
-  color: #3399cc;
-  font-size: 24px;
-}  
+  
 
