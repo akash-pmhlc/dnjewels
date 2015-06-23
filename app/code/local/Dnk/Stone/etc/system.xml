@@ -34,10 +34,19 @@
 							<comment>24K Charges per 10 gm</comment>
 							<backend_model>stone/goldrate</backend_model>
                           </rate24k>
+                          <rate9k translate="label">
+                            <label>Rate of Gold for 9K</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment>9K Charges, Percentage Value of 24K</comment>
+                          </rate9k>
                           <rate14k translate="label">
                             <label>Rate of Gold for 14K</label>
 							<frontend_type>text</frontend_type>
-                            <sort_order>0</sort_order>
+                            <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
@@ -46,7 +55,7 @@
                           <rate18k translate="label">
                             <label>Rate of Gold for 18K</label>
 							<frontend_type>text</frontend_type>
-                            <sort_order>1</sort_order>
+                            <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>

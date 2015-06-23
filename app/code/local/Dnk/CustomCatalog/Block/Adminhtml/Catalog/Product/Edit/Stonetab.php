@@ -1,6 +1,6 @@
 <?php
  
-class Dnk_CustomCatalog_Block_Adminhtml_Catalog_Product_Edit_StoneTab
+class Dnk_CustomCatalog_Block_Adminhtml_Catalog_Product_Edit_Stonetab
 extends Mage_Adminhtml_Block_Widget
 implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {

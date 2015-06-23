@@ -137,16 +137,24 @@ class Dnk_CustomCatalog_Model_Observer extends Varien_Object
 		$goldRate = Mage::getStoreConfig('gold/goldrate/rate24k');
 		
 		if($goldWeight > 0) {
+			$goldRate9K = Mage::getStoreConfig('gold/goldrate/rate9k');
+			$goldRate9kString = $goldWeight*$goldRate*$goldRate9K/10;
 			$goldRate14K = Mage::getStoreConfig('gold/goldrate/rate14k');
 			$goldRate14kString = $goldWeight*$goldRate*$goldRate14K/10;
 			$goldRate18K = Mage::getStoreConfig('gold/goldrate/rate18k');
 			$goldRate18kString = $goldWeight*$goldRate*$goldRate18K/10;
 		
+			$product->setGoldrate9k($goldRate9kString);
+
 			$product->setGoldrate14k($goldRate14kString);
 			
 			$product->setGoldrate18k($goldRate18kString);
 			
-			if($product->getGoldrate14k() != '') {
+			if($product->getGoldrate9k() != '') {
+				$goldSelected = '9K';
+				$listingPrice = $price + $product->getGoldrate9k();
+				$gold['price'] = $product->getGoldrate9k();
+			} elseif ($product->getGoldrate14k() != '') {
 				$goldSelected = '14K';
 				$listingPrice = $price + $product->getGoldrate14k();
 				$gold['price'] = $product->getGoldrate14k();
@@ -166,6 +174,9 @@ class Dnk_CustomCatalog_Model_Observer extends Varien_Object
 			if($postProductOption['title'] == 'Gold Purity') {
 
 				foreach ($postProductOption['values'] as $childKey => $postProductOptionValue) {
+					if($postProductOptionValue['title'] == '9K') {
+						$productOptions[$parentKey]['values'][$childKey]['price'] = $product->getGoldrate9k();
+					}
 					if($postProductOptionValue['title'] == '14K') {
 						$productOptions[$parentKey]['values'][$childKey]['price'] = $product->getGoldrate14k();
 					}

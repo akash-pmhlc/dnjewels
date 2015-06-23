@@ -6,6 +6,7 @@ $installer->addAttribute("catalog_product", "rates", array("type"=>"varchar"));
 $installer->addAttribute("catalog_product", "stonerates", array("type"=>"varchar"));
 $installer->addAttribute("catalog_product", "goldpurity", array("type"=>"varchar"));
 $installer->addAttribute("catalog_product", "goldcolor", array("type"=>"varchar"));
+$installer->addAttribute("catalog_product", "goldrate9k", array("type"=>"varchar"));
 $installer->addAttribute("catalog_product", "goldrate14k", array("type"=>"varchar"));
 $installer->addAttribute("catalog_product", "goldrate18k", array("type"=>"varchar"));
 $installer->addAttribute("catalog_product", "goldweight", array("type"=>"varchar"));

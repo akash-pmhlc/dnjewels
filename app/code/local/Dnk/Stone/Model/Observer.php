@@ -5,14 +5,17 @@ class Dnk_Stone_Model_Observer extends Varien_Object
     public function changeInGoldRates($observer)
     {
 		$newGold24KRate = Mage::getStoreConfig('gold/goldrate/rate24k');
+		$newGold9KRate = Mage::getStoreConfig('gold/goldrate/rate9k');
 		$newGold14KRate = Mage::getStoreConfig('gold/goldrate/rate14k');
 		$newGold18KRate = Mage::getStoreConfig('gold/goldrate/rate18k');
 
         $oldGold24KRate = Mage::getSingleton('adminhtml/session')->getOldGold24KRate();
+        $oldGold9KRate = Mage::getSingleton('adminhtml/session')->getOldGold9KRate();
         $oldGold14KRate = Mage::getSingleton('adminhtml/session')->getOldGold18KRate();
         $oldGold18KRate = Mage::getSingleton('adminhtml/session')->getOldGold14KRate();
 
         Mage::getSingleton('adminhtml/session')->unsOldGold24KRate();
+        Mage::getSingleton('adminhtml/session')->unsOldGold9KRate();
         Mage::getSingleton('adminhtml/session')->unsOldGold18KRate();
         Mage::getSingleton('adminhtml/session')->unsOldGold14KRate();
 
@@ -21,6 +24,7 @@ class Dnk_Stone_Model_Observer extends Varien_Object
 			$products = Mage::getModel('catalog/product')->getCollection()
 							->addAttributeToFilter(
 								array(
+									array('attribute'=> 'goldrate9k','neq' => ''),
 									array('attribute'=> 'goldrate14k','neq' => ''),
 									array('attribute'=> 'goldrate18k','neq' => ''),
 								)
@@ -35,12 +39,20 @@ class Dnk_Stone_Model_Observer extends Varien_Object
 					
 					$currentlistingPrice = $product->getListingprice();
 					
-					if($product->getGoldrate14k() > 0) {
-						$templistingPrice = $currentlistingPrice-$product->getGoldrate14k();
-						$product->setGoldrate14k($product->getGoldweight()*$newGold24KRate*$newGold14KRate/10);
-						$newlistingPrice = $templistingPrice+$product->getGoldrate14k();
+					if($product->getGoldrate9k() > 0) {
+						$templistingPrice = $currentlistingPrice-$product->getGoldrate9k();
+						$product->setGoldrate9k($product->getGoldweight()*$newGold24KRate*$newGold9KRate/10);
+						$newlistingPrice = $templistingPrice+$product->getGoldrate9k();
 					}
 					
+					if($product->getGoldrate14k() > 0) {
+						$product->setGoldrate14k($product->getGoldweight()*$newGold24KRate*$newGold14KRate/10);
+						if (!isset($templistingPrice)) {
+							$templistingPrice = $currentlistingPrice-$product->getGoldrate14k();
+							$newlistingPrice = $templistingPrice+$product->getGoldrate14k();
+						}
+					}
+
 					if($product->getGoldrate18k() > 0) {
 						$product->setGoldrate18k($product->getGoldweight()*$newGold24KRate*$newGold18KRate/10);
 						if (!isset($templistingPrice)) {
@@ -86,6 +98,9 @@ class Dnk_Stone_Model_Observer extends Varien_Object
 						if($postProductOption['title'] == 'Gold Purity') {
 
 							foreach ($postProductOption['values'] as $childKey => $postProductOptionValue) {
+								if($postProductOptionValue['title'] == '9K') {
+									$productOptions[$parentKey]['values'][$childKey]['price'] = $product->getGoldrate9k();
+								}
 								if($postProductOptionValue['title'] == '14K') {
 									$productOptions[$parentKey]['values'][$childKey]['price'] = $product->getGoldrate14k();
 								}
