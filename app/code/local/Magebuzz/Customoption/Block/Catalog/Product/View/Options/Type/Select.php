@@ -30,10 +30,19 @@ class Magebuzz_Customoption_Block_Catalog_Product_View_Options_Type_Select
                 $select->setClass('multiselect'.$require.' product-custom-option');
             }
             foreach ($_option->getValues() as $_value) {
+                $goldRate9K = $this->getProduct()->getGoldrate9k();
                 $goldRate14K = $this->getProduct()->getGoldrate14k();
                 $goldRate18K = $this->getProduct()->getGoldrate18k();
+                $goldRate9KArray = explode(',', $goldRate9K);
                 $goldRate14KArray = explode(',', $goldRate14K);
                 $goldRate18KArray = explode(',', $goldRate18K);
+                foreach ($goldRate9KArray as $optionRate) {
+                    $optionRateArray = explode('-', $optionRate);
+                    if ($optionRateArray[1] == $_value->getTitle()) {
+                        $option9KPrice = $optionRateArray[0];
+                        break;
+                    }
+                }
                 foreach ($goldRate14KArray as $optionRate) {
                     $optionRateArray = explode('-', $optionRate);
                     if ($optionRateArray[1] == $_value->getTitle()) {
@@ -58,7 +67,7 @@ class Magebuzz_Customoption_Block_Catalog_Product_View_Options_Type_Select
 	                    $_value->getOptionTypeId(),
 	                    //$_value->getTitle() . ' ' . $priceStr . '',
 						$_value->getTitle(),
-	                    array('price' => $this->helper('core')->currencyByStore($_value->getPrice(true), $store, false),'14K' =>$option14KPrice,'18K' =>$option18KPrice,
+	                    array('price' => $this->helper('core')->currencyByStore($_value->getPrice(true), $store, false),'9K' =>$option9KPrice,'14K' =>$option14KPrice,'18K' =>$option18KPrice,
 							'selected' => 'selected'
 						)
 	                );

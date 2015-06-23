@@ -47,18 +47,21 @@
 <?php
 
 		$goldRate = Mage::getStoreConfig('gold/goldrate/rate24k');
+		$goldRate9K = Mage::getStoreConfig('gold/goldrate/rate9k');
+		$goldRate9kString = $goldRate*$goldRate9K/10;
 		$goldRate14K = Mage::getStoreConfig('gold/goldrate/rate14k');
 		$goldRate14kString = $goldRate*$goldRate14K/10;
 		$goldRate18K = Mage::getStoreConfig('gold/goldrate/rate18k');
 		$goldRate18kString = $goldRate*$goldRate18K/10;
 ?>
+<input type="hidden" name="goldRate9K" id="goldRate9K" value="<?php echo $goldRate9kString;?>"/>
 <input type="hidden" name="goldRate14K" id="goldRate14K" value="<?php echo $goldRate14kString;?>"/>
 <input type="hidden" name="goldRate18K" id="goldRate18K" value="<?php echo $goldRate18kString;?>"/>
 
 <div class="pricesplit" id="light_price_split" style="display: block;padding-bottom: 65px;padding-top: 15px;">
 	<ul>
 	
-		<?php if($_product->getGoldrate14k() > 0 || $_product->getGoldrate18k() > 0) {?>
+		<?php if($_product->getGoldrate9k() > 0 || $_product->getGoldrate14k() > 0 || $_product->getGoldrate18k() > 0) {?>
 			<li>
 				<div class="alllabel">
 					<div class="goldblock">
@@ -66,8 +69,8 @@
 						<div class="goldprice breakPrice">
 							<span style="float: left;">Rs.&nbsp;</span>
 							<div id="goldprice"  style="float: left;">
-								<?php echo number_format($_product->getGoldrate14k(), 0, null, '');?>
-								<?php if(!$_product->getGoldrate14k())echo number_format($_product->getGoldrate18k(), 0, null, '');?>
+								<?php echo number_format($_product->getGoldrate9k(), 0, null, '');?>
+								<?php if(!$_product->getGoldrate9k())echo number_format($_product->getGoldrate14k(), 0, null, '');?>
 							</div>
 						</div>
 					</div>

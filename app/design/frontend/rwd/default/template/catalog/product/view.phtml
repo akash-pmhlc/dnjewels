@@ -175,22 +175,32 @@
                     if(elmOptionCategory == 'Gold Purity') {
                         labelElmId = 'label_'+c.id;
                         var a = document.getElementById(labelElmId).innerHTML;
-                        if (a == '14K') {
-                            document.getElementById('set-gold-purity').innerHTML = '14';
-                            document.getElementById('desc-gold-purity').innerHTML = '14';
-                            document.getElementById('breakup-gold-purity').innerHTML = '14';
+                        if (a == '9K') {
+                            document.getElementById('set-gold-purity').innerHTML = '9';
+                            document.getElementById('desc-gold-purity').innerHTML = '9';
+                            document.getElementById('breakup-gold-purity').innerHTML = '9';
                             
-                            var goldRate14KElm = document.getElementById('goldRate14K');
-                            var goldRate14K = Number(goldRate14KElm.value);
-                            document.getElementById('breakup-gold-rate-per-gm').innerHTML =goldRate14K;
+                            var goldRate9KElm = document.getElementById('goldRate9K');
+                            var goldRate9K = Number(goldRate9KElm.value);
+                            document.getElementById('breakup-gold-rate-per-gm').innerHTML =goldRate9K;
                         } else {
-                            document.getElementById('set-gold-purity').innerHTML = '18';
-                            document.getElementById('desc-gold-purity').innerHTML = '18';
-                            document.getElementById('breakup-gold-purity').innerHTML = '18';
-                            
-                            var goldRate18KElm = document.getElementById('goldRate18K');
-                            var goldRate18K = Number(goldRate18KElm.value);
-                            document.getElementById('breakup-gold-rate-per-gm').innerHTML =goldRate18K;
+                            if (a == '14K') {
+                                document.getElementById('set-gold-purity').innerHTML = '14';
+                                document.getElementById('desc-gold-purity').innerHTML = '14';
+                                document.getElementById('breakup-gold-purity').innerHTML = '14';
+                                
+                                var goldRate14KElm = document.getElementById('goldRate14K');
+                                var goldRate14K = Number(goldRate14KElm.value);
+                                document.getElementById('breakup-gold-rate-per-gm').innerHTML =goldRate14K;
+                            } else {
+                                document.getElementById('set-gold-purity').innerHTML = '18';
+                                document.getElementById('desc-gold-purity').innerHTML = '18';
+                                document.getElementById('breakup-gold-purity').innerHTML = '18';
+                                
+                                var goldRate18KElm = document.getElementById('goldRate18K');
+                                var goldRate18K = Number(goldRate18KElm.value);
+                                document.getElementById('breakup-gold-rate-per-gm').innerHTML =goldRate18K;
+                            }
                         }
                     }
                     
